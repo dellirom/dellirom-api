@@ -1,0 +1,21 @@
+{
+  "name": "dellirom/dellirom-api",
+  "description": "Fast rest API",
+  "keywords": ["dellirom", "API", "Slim"],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Dellirom",
+      "email": "dellirom@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "dellirom\\api\\": "src/"
+    },
+    "files": ["Api.php"]
+  }
+}
