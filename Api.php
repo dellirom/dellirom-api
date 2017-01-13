@@ -44,8 +44,11 @@ class Api
 	}
 
 	public function init(){
-		//require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Routes.php';
+		// require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'routes/api.php';
+		require_once  dirname(__FILE__) . DIRECTORY_SEPARATOR . 'routes' . DIRECTORY_SEPARATOR . 'api.php';
 	}
+
+
 
 	public function connect(){
 		$mysql_connect_str = "mysql:host=$this->dbhost;dbname=$this->dbname";

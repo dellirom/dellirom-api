@@ -1,26 +1,27 @@
-# Fast API Dellirom
+<?php
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+use \dellirom\Api as Api;
 
-##Using for slim
 
-### Get All Items
-```php
+require '../vendor/autoload.php';
+
+$app = new \Slim\App;
+$api = new Api;
+
 // Get All Items
 $app->get( $api->route . 's', function (Request $request, Response $response ) {
 	$api 		= new dellirom\Api;
 	$api->crud(array('crud' => 'read'));
 });
-```
 
-### Single Item
-```php
+// Single Item
 $app->get( $api->route . '/{id}', function (Request $request, Response $response ) {
 	$api 		= new dellirom\Api;
 	$api->crud(array('crud' => 'read', 'id' => $request->getAttribute('id')));
 });
-```
 
-### Add Item
-```php
+// Add Item
 $app->post( $api->route . '/add', function (Request $request, Response $response) {
 	$api 		= new dellirom\Api;
 	$fields = array_flip($api->getFields());
@@ -29,10 +30,8 @@ $app->post( $api->route . '/add', function (Request $request, Response $response
 	}
 	$api->crud( array('crud' => 'create', 'fields' => $fields) );
 });
-```
 
-### Update Item
-```php
+// Update Item
 $app->put( $api->route . '/{id}', function (Request $request, Response $response) {
 	$api 		= new dellirom\Api;
 	$fields = array_flip($api->getFields());
@@ -41,12 +40,11 @@ $app->put( $api->route . '/{id}', function (Request $request, Response $response
 	}
 	$api->crud( array('crud' => 'update', 'id' => $request->getAttribute('id'), 'fields' => $fields) );
 });
-```
 
-### Delete Item
-```php
+// Delete Item
 $app->delete($api->route . '/{id}', function (Request $request, Response $response) {
 	$api 		= new dellirom\Api;
 	$api->crud( array('crud' => 'delete', 'id' => $request->getAttribute('id')) );
 });
-```
+
+?>
